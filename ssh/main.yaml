@@ -1,0 +1,40 @@
+✅ Title
+	SSH config File
+
+📝 Descriptions
+	with this config all information about server save and after simple writhe: ssh [hostname]
+
+⚠️ Important Notes
+
+🛠 Commands
+
+
+	~/.ssh/config
+
+	chmod 600 ~/.ssh/config
+
+
+	Host myserver
+		HostName 192.168.56.20
+		User farshad
+		Port 22
+		IdentityFile ~/.ssh/id_rsa
+		ForwardAgent yes
+ 
+ ----------------------------
+
+✅ Title
+	SSH Key Generation
+
+📝 Descriptions
+	Generate Public and Private key in ssh client
+
+⚠️ Important Notes
+
+🛠 Commands
+  ssh-keygen -t rsa -b 4096 -C "farshadjanmohammadi@gmail.com"
+
+  cat ~/.ssh/id_rsa.pub
+
+  # put public key on server ssh
+
