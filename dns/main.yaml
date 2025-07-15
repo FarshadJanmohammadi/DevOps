@@ -96,3 +96,20 @@ network:
   IPv6 address: 2001:4860:4860::8844 
   DNS over HTTPS endpoint: https://dns.google/dns-query
   DNS over TLS endpoint: dns.google
+  DNS over TLS endpoint: dns.google
+
+  --------------------------------------------------------------------
+
+  ✅ Title
+	nslookup tools
+
+📝 Descriptions
+	how work with nslookup
+
+⚠️ Important Notes
+
+🛠 Commands
+	nslookup
+ 	server 8.8.8.8
+  	set q=ns OR set q=a
+   	google.com
