@@ -36,5 +36,5 @@
 
   cat ~/.ssh/id_rsa.pub
 
-  # put public key on server ssh
+  put public key on server ssh
 
