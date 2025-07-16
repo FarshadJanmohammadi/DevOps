@@ -10,3 +10,25 @@
 
 
 🛠 Commands
+	- sudo mkdir -p /var/www/farshadjohnm.ir/html
+ 	- sudo chown -R $USER:$USER /var/www/farshadjohnm.ir/html
+  	- echo "<h1>Welcome to farshadjohnm.ir</h1>" > /var/www/farshadjohnm.ir/html/index.html
+   	- sudo vim /etc/nginx/sites-available/farshadjohnm.ir
+    server {
+    listen 80;
+    listen [::]:80;
+
+    server_name farshadjohnm.ir www.farshadjohnm.ir;
+
+    root /var/www/farshadjohnm.ir/html;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+	- sudo ln -s /etc/nginx/sites-available/farshadjohnm.ir /etc/nginx/sites-enabled/
+ 	- sudo nginx -t
+  	- sudo systemctl reload nginx
+
+
