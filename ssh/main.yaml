@@ -14,12 +14,12 @@
 	chmod 600 ~/.ssh/config
 
 
-	Host myserver
-		HostName 192.168.56.20
-		User farshad
-		Port 22
-		IdentityFile ~/.ssh/id_rsa
-		ForwardAgent yes
+Host myserver
+	HostName 192.168.56.20
+	User farshad
+ 	Port 22
+	IdentityFile ~/.ssh/id_rsa
+	ForwardAgent yes
  
  ----------------------------
 
