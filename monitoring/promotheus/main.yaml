@@ -1,0 +1,68 @@
+✅ Title
+install promethous with systemd
+
+📝 Descriptions
+
+
+⚠️ Important Notes
+
+🛠 Command
+- copy link address package tar.gz in official website
+
+- wget https://github.com/prometheus/prometheus/releases/download/v2.47.0/prometheus-2.47.0.linux-amd64.tar.gz
+
+- sudo mkdir /etc/prometheus
+sudo mkdir /var/lib/prometheus
+
+sudo cp prometheus /usr/local/bin/
+sudo cp promtool /usr/local/bin/
+sudo cp -r consoles /etc/prometheus/ #if exist
+sudo cp -r console_libraries /etc/prometheus/ #if exist
+sudo cp prometheus.yml /etc/prometheus/
+
+- in promethous.yaml put:(optional)
+
+global:
+  scrape_interval: 15s       # هر 15 ثانیه داده جمع‌آوری می‌شود
+  evaluation_interval: 15s   # هر 15 ثانیه هشدارها بررسی می‌شوند
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+- create systemd service:
+sudo nano /etc/systemd/system/prometheus.service
+
+- put this config in promethous.service:
+[Unit]
+Description=Prometheus Monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file=/etc/prometheus/prometheus.yml \
+    --storage.tsdb.path=/var/lib/prometheus/ \
+    --web.console.templates=/etc/prometheus/consoles \
+    --web.console.libraries=/etc/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target
+
+- create user promethous:
+sudo useradd --no-create-home --shell /bin/false prometheus
+sudo chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
+
+- reload and restart:
+sudo systemctl daemon-reload
+sudo systemctl enable prometheus
+sudo systemctl start prometheus
+
+- check status service:
+sudo systemctl status prometheus
+
+- check localhost:9090 to display ui
