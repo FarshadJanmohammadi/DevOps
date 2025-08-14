@@ -1,16 +1,16 @@
 ✅ Title
-  Install Docker Engine on Ubuntu
+Install Docker Engine on Ubuntu
 
 
 📝 Descriptions
 
 
 ⚠️ Important Notes
-	- use dns Electro : 78.157.42.100 78.157.42.101
+- use dns Radar : 10.202.10.10 10.202.10.11
 
 
 🛠 Commands
-  # Add Docker's official GPG key:
+# Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -24,8 +24,9 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
- sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 
- sudo docker run hello-world
+sudo docker run hello-world
 
  -------------------------------------------------------------------------------------------------------
+
